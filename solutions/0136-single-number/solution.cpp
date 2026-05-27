@@ -2,10 +2,10 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) {
       unordered_map<int,int> freq;
-      for(int value : nums){
-        freq[value]++;
+      for(int num : nums){
+        freq[num]++;
       }
-      for(auto &it : freq){
+      for(auto it : freq){
         if(it.second == 1){
             return it.first;
         }
