@@ -6,6 +6,9 @@ on:
     # Runs daily at midnight UTC
     - cron: '0 0 * * *'
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     name: Sync LeetCode
