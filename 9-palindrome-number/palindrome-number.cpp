@@ -4,13 +4,16 @@ public:
        if(x<0){
         return false;
        } 
-       int temp =x;
-       long long rev = 0;
-       while(temp!=0){
-        int digit = temp % 10;
-        rev = rev * 10 + digit;
-        temp /= 10;
+       string s = to_string(x);
+       int left = 0;
+       int right = s.size()-1;
+       while(left < right){
+        if(s[left] != s[right]){
+            return false;
+        }
+        left++;
+        right--;
        }
-       return rev == x;
+       return true;
     }
 };
