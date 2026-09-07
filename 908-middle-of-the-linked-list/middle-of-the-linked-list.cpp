@@ -27,15 +27,23 @@ public:
         // return temp;
 
         // solution 2
+        // ListNode* i = head;
+        // ListNode* j = head->next;
+        // if(head ->next == NULL){
+        //     return head;
+        // }
+        // while(j->next != NULL && j->next->next != NULL){
+        //     i = i -> next;
+        //     j = j -> next -> next;
+        // }
+        // return i->next;
+
         ListNode* i = head;
-        ListNode* j = head->next;
-        if(head ->next == NULL){
-            return head;
+        ListNode* j = head;
+        while(j != NULL && j->next != NULL){
+            i = i->next;
+            j = j->next->next;
         }
-        while(j->next != NULL && j->next->next != NULL){
-            i = i -> next;
-            j = j -> next -> next;
-        }
-        return i->next;
+        return i;
     }
 };
