@@ -14,19 +14,29 @@ public:
        if(head->next == NULL){
         return NULL;
        } 
-        int n = 0;
-        ListNode* temp = head;
-        while(temp != NULL){
-            temp = temp->next;
-            n++;
-        }
-        int pos = floor(n/2);
-        temp = head;
+        // int n = 0;
+        // ListNode* temp = head;
+        // while(temp != NULL){
+        //     temp = temp->next;
+        //     n++;
+        // }
+        // int pos = floor(n/2);
+        // temp = head;
         
-        for(int i = 0 ;i<pos-1;i++){
-            temp = temp->next;
+        // for(int i = 0 ;i<pos-1;i++){
+        //     temp = temp->next;
+        // }
+        // temp->next = temp->next->next;
+        // return head;
+
+        // SOLUTION 2
+        ListNode* slow = head;
+        ListNode* fast = head->next->next;
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        temp->next = temp->next->next;
+        slow->next = slow->next->next;
         return head;
     }
 };
